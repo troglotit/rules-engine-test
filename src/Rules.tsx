@@ -33,57 +33,71 @@ export function Rules() {
 
   return (
     <div className="Rules-root">
-      <div>
-        A:
-        <Input
-          value={inputs.A}
-          onChange={(value) => setInputs((prev) => ({ ...prev, A: value }))}
-        />
+      <div style={{ display: "flex" }}>
+        <div>
+          <div>
+            A:
+            <Input
+              value={inputs.A}
+              onChange={(value) => setInputs((prev) => ({ ...prev, A: value }))}
+            />
+          </div>
+          <div>
+            B:
+            <Input
+              value={inputs.B}
+              onChange={(value) => setInputs((prev) => ({ ...prev, B: value }))}
+            />
+          </div>
+          <div>
+            C:
+            <Input
+              value={inputs.C}
+              onChange={(value) => setInputs((prev) => ({ ...prev, C: value }))}
+            />
+          </div>
+        </div>
+        <div>
+          <div>
+            D:
+            <Input
+              value={inputs.D}
+              onChange={(value) => setInputs((prev) => ({ ...prev, D: value }))}
+            />
+          </div>
+          <div>
+            E:
+            <Input
+              value={inputs.E}
+              onChange={(value) => setInputs((prev) => ({ ...prev, E: value }))}
+            />
+          </div>
+          <div>
+            F:
+            <Input
+              value={inputs.F}
+              onChange={(value) => setInputs((prev) => ({ ...prev, F: value }))}
+            />
+          </div>
+          <div>
+            Rules:
+            <select
+              value={inputs.rule}
+              onChange={(e) =>
+                setInputs((prev) => ({
+                  ...prev,
+                  rule: e.target.value as any,
+                }))
+              }
+            >
+              <option value={RulesEnum.Base} label={RulesEnum.Base} />
+              <option value={RulesEnum.Custom1} label={RulesEnum.Custom1} />
+              <option value={RulesEnum.Custom2} label={RulesEnum.Custom2} />
+            </select>
+          </div>
+        </div>
       </div>
       <div>
-        B:
-        <Input
-          value={inputs.B}
-          onChange={(value) => setInputs((prev) => ({ ...prev, B: value }))}
-        />
-      </div>
-      <div>
-        C:
-        <Input
-          value={inputs.C}
-          onChange={(value) => setInputs((prev) => ({ ...prev, C: value }))}
-        />
-      </div>
-      <div>
-        D:
-        <Input
-          value={inputs.D}
-          onChange={(value) => setInputs((prev) => ({ ...prev, D: value }))}
-        />
-        E:
-        <Input
-          value={inputs.E}
-          onChange={(value) => setInputs((prev) => ({ ...prev, E: value }))}
-        />
-        F:
-        <Input
-          value={inputs.F}
-          onChange={(value) => setInputs((prev) => ({ ...prev, F: value }))}
-        />
-        Rules:
-        <select
-          value={inputs.rule}
-          onChange={(e) =>
-            setInputs((prev) => ({
-              ...prev,
-              rule: e.target.value as any,
-            }))
-          }
-        >
-          <option value={RulesEnum.Base} label={RulesEnum.Base} />
-          <option value={RulesEnum.Custom1} label={RulesEnum.Custom1} />
-          <option value={RulesEnum.Custom2} label={RulesEnum.Custom2} />
-        </select>
         <div></div>
         H: {H != null ? H : "error"}
         <br />
@@ -98,7 +112,7 @@ function Input<T extends boolean | number>(props: {
   onChange: (a: T) => void;
 }) {
   return (
-    <div>
+    <span>
       {typeof props.value === "boolean" ? (
         <input
           type="checkbox"
@@ -112,7 +126,7 @@ function Input<T extends boolean | number>(props: {
           onChange={(e) => props.onChange(e.target.valueAsNumber as T)}
         />
       )}
-    </div>
+    </span>
   );
 }
 
